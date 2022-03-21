@@ -1,0 +1,13 @@
+body{
+    height: var(--winH);
+    width: var(--winW);
+    margin: 0;
+}
+div{
+    height: fit-content;
+    position: relative;
+}
+input[type=text]{
+    border: none;
+    padding: 0;
+}
