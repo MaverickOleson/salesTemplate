@@ -1,13 +1,5 @@
-// const passport = require("passport")
-// const express = require("express")
-// const Router = express.Router()
 const express = require("express")
-const app = express()
-const bcrypt = require('bcrypt')
-
-app.use(express.json())
-
-// Router.post('/login', passport.authenticate('local', { successRedirect: '/adminHome', failureRedirect: '/adminLogin' }));
+const app = express();
 
 app.post('/users', async (req, res) => {
     try {

@@ -2,13 +2,17 @@ const mongoose = require('mongoose');
 // import mongoose from 'mongoose'
 
 const UserSchema = new mongoose.Schema({
-    username: {
+    _id: {
         type: String,
         required: [true, 'Must Provide a Username']
     },
     password: {
         type: String,
         required: [true, 'Must Provide a Password']
+    },
+    token: {
+        type: String,
+        required: false
     }
 });
 
