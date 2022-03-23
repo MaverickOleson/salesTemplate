@@ -1,7 +1,12 @@
 <main>
     <h1>Your Info</h1>
+    <h2>
+        <%= name %>
+    </h2>
     <% for(var i=0; i<10; i++) {%>
         <h1>loop</h1>
         <% }%>
-            <form method="users"></form>
+            <form action="/users/<%= name %>" method="post">
+                <button type="submit">Update Info</button>
+            </form>
 </main>

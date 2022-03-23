@@ -41,8 +41,10 @@ app.get('/', (req, res) => {
 	res.render('pages/home', {
 	});
 });
-app.get('/yourInfo', (req, res) => {
+app.get('/yourInfo', async (req, res) => {
+	const Login = await userModel.findOne({ _id: req.cookies.username }).exec();
 	res.render('pages/yourInfo', {
+		name: Login._id
 	});
 });
 app.get('/login', (req, res) => {

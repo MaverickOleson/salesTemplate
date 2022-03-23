@@ -14,6 +14,20 @@ app.post('/users', async (req, res, next) => {
         return res.status(400).send('name already exists');
     }
 });
+app.post('/users/:id', async (req, res, next) => {
+    try {
+        const Login = await accountModel.findOne({ _id: req.query.username }).exec();
+        if (await bcrypt.compare(req.query.password, Login.password)) {
+            await accountModel.findOneAndUpdate({ _id: req.query.username }, Login);
+            res.redirect('/yourInfo');
+        }
+        else {
+            return res.redirect('/invalidLogin');
+        }
+    } catch (error) {
+        return res.status(400).send('name already exists');
+    }
+});
 app.get('/users', async (req, res) => {
     try {
         const Login = await accountModel.findOne({ _id: req.query.username }).exec();
