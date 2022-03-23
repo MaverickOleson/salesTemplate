@@ -163,6 +163,7 @@ main {
 main img {
   width: 40%;
   margin: 20px;
+  border: 2px solid lime;
 }
 main img:nth-of-type(odd) {
   float: right;
@@ -187,6 +188,10 @@ body {
 nav {
   border: 2px solid white;
   background: black;
+}
+nav img {
+  border-bottom: 2px solid lime;
+  padding-bottom: 5px;
 }
 nav a {
   height: 35px;

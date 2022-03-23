@@ -25,7 +25,8 @@ main{
     margin: 35px auto;
     img{
         width: 40%;
-        margin: 20px;
+            margin: 20px;
+            border: 2px solid lime;
         &:nth-of-type(odd){
             float: right;
         }
@@ -50,6 +51,10 @@ body{
 nav{
     border: 2px solid white;
     background: black;
+    img{
+        border-bottom: 2px solid lime;
+        padding-bottom: 5px;
+    }
     a{
         height: 35px;
         @include center;
