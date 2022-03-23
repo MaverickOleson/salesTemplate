@@ -1,0 +1,26 @@
+.login{
+    @include vert;
+    input{
+        height: 50px;
+        width: 250px;
+        border-radius: 50px;
+        border: 2px solid #aaa;
+        padding-left: 22px;
+        font-size: 15px;
+    }
+    button{
+        height: 50px;
+        padding: 0 20px;
+        border-radius: 50px;
+        border: 2px solid;
+        font-size: 15px;
+    }
+    a{
+        width: fit-content;
+        margin-top: 20px;
+    }
+    .alert{
+        color: red;
+        background: #f88;
+    }
+}

@@ -1,15 +1,39 @@
 body{
-    height: var(--winH);
-    width: var(--winW);
+    min-height: var(--winH);
+    width: 100%;
     margin: 0;
+    position: relative;
+    word-break: break-all;
 }
 div{
     height: fit-content;
     position: relative;
+    box-sizing: border-box;
+}
+h1,h2,h3,h4,h5,h6,p{
+    margin: 0;
+}
+form{
+    @include vert;
+    *{
+        margin-top: 20px;
+    }
 }
 input[type=text]{
+    box-sizing: border-box;
     padding: 0;
+    outline: none;
+}
+button{
+    box-sizing: border-box;
+    background: white;
+    cursor: pointer;
 }
 a{
     color: black;
+    display: block;
+    text-decoration: underline;
+}
+header, footer, nav, body, main, article, aside{
+    box-sizing: border-box;
 }

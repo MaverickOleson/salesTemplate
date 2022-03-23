@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="50mm"
-   height="50mm"
-   viewBox="0 0 50 50"
+   width="10mm"
+   height="10mm"
+   viewBox="0 0 10 10"
    version="1.1"
    id="svg5"
+   sodipodi:docname="grid.svg"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
-   sodipodi:docname="panOpen.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,42 +23,28 @@
      inkscape:pagecheckerboard="1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="2.096401"
-     inkscape:cx="171.96138"
-     inkscape:cy="149.542"
+     inkscape:zoom="1.0809568"
+     inkscape:cx="75.39617"
+     inkscape:cy="191.95957"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     inkscape:snap-object-midpoints="true" />
   <defs
      id="defs2" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-31.056488,-39.609375)">
-    <rect
-       style="fill:#ffffff;stroke-width:0.341575"
-       id="rect846-9-9"
-       width="50"
-       height="10"
-       x="31.056488"
-       y="39.609375" />
-    <rect
-       style="fill:#ffffff;stroke-width:0.341575"
-       id="rect846-9-9-6"
-       width="50"
-       height="10"
-       x="31.05649"
-       y="59.609375" />
-    <rect
-       style="fill:#ffffff;stroke-width:0.341575"
-       id="rect846-8"
-       width="50"
-       height="10"
-       x="31.05649"
-       y="79.609375" />
+     transform="translate(300.19649,187.3821)">
+    <path
+       id="path7797-1"
+       style="fill:#ffffff;stroke-width:0.0413711"
+       inkscape:transform-center-x="-1.3999316"
+       inkscape:transform-center-y="-2.1342334"
+       d="m -295.71674,-187.3821 v 4.47975 h -4.47975 v 1.0405 h 4.3 0.17975 v 4.47975 h 1.0405 v -4.3 -0.17975 h 4.47975 v -1.0405 h -4.47975 v -4.47975 z" />
   </g>
 </svg>

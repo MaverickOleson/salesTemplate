@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="30.970407mm"
-   height="9.6002283mm"
-   viewBox="0 0 30.970407 9.6002283"
+   width="2.051342mm"
+   height="6.1540251mm"
+   viewBox="0 0 2.051342 6.1540251"
    version="1.1"
    id="svg13750"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
-   sodipodi:docname="logo.svg"
+   sodipodi:docname="logoS.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -25,8 +25,8 @@
      showgrid="false"
      inkscape:snap-object-midpoints="true"
      inkscape:zoom="3.0574074"
-     inkscape:cx="39.739552"
-     inkscape:cy="-3.7613568"
+     inkscape:cx="24.694125"
+     inkscape:cy="16.844337"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
@@ -39,21 +39,10 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-22.845483,-48.5407)">
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Sitka Text';-inkscape-font-specification:'Sitka Text';fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="25.269234"
-       y="55.817307"
-       id="text15469"><tspan
-         sodipodi:role="line"
-         id="tspan15467"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Sitka Text';-inkscape-font-specification:'Sitka Text';fill:#00ff00;fill-opacity:1;stroke-width:0.264583"
-         x="25.269234"
-         y="55.817307">Spark</tspan></text>
+     transform="translate(-26.839043,-43.127149)">
     <path
        id="rect39929-1-5-6"
        style="fill:#00ff00;fill-opacity:1;stroke-width:0.141242"
-       d="m 24.896825,48.640292 -2.051342,2.051342 v 2.051341 2.051342 l 2.051342,-2.051342 -1e-6,-2.051342 z" />
+       d="m 28.890385,43.127149 -2.051342,2.051342 v 2.051341 2.051342 l 2.051342,-2.051342 -10e-7,-2.051342 z" />
   </g>
 </svg>

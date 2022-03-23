@@ -1,0 +1,100 @@
+html{
+    padding: 0 50px;
+    background: black;
+    color: white;
+    a{
+        background: $darkGreen;
+        color: $brightGreen;
+        padding: 10px 15px;
+        border-radius: 20px;
+        border: 2px solid white;
+        margin-top: 15px;
+        color: $brightGreen;
+    }
+}
+h1{
+    color: $brightGreen;
+}
+main{
+    width: fit-content;
+    max-width: 70%;
+    font-size: 25px;
+    background: black;
+    padding: 0 30px;
+    border: 2px solid white;
+    margin: 35px auto;
+    img{
+        width: 40%;
+        margin: 20px;
+        &:nth-of-type(odd){
+            float: right;
+        }
+        &:nth-of-type(even){
+            float: left;
+        }
+    }
+    h1{
+        margin-top: 20px;
+        // color: white;
+    }
+    p{
+        margin: 20px;
+    }
+}
+body{
+    text-align:center;
+    background-image: url(./svgs/background.svg);
+    background-size: 45px;
+    padding-bottom: 1px;
+}
+nav{
+    border: 2px solid white;
+    background: black;
+    a{
+        height: 35px;
+        @include center;
+        border-radius: 0;
+        margin-top: 0;
+        &:hover{
+            background: $midGreen;
+        }
+    }
+}
+footer{
+    background: $darkGreen;
+    border-top: 2px solid white;
+}
+.login{
+    @include posCenter;
+    h1{
+        background: black;
+        border: 2px solid white;
+        padding: 5px 15px;
+    }
+    input{
+        border: 0;
+    }
+    button{
+        cursor: pointer;
+        border: 2px solid white;
+        background: #111;
+        color: white;
+        &:hover{
+            background: gray;
+            color: black;
+        }
+    }
+}
+.logout{
+    @include posCenter;
+    background: #f00;
+    color: white;
+    border: 2px solid white;
+    border-radius: 35px;
+    padding: 10px 20px;
+    font-size: 25px;
+    &:hover{
+        background: #f88;
+        color: black;
+    }
+}
