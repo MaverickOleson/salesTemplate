@@ -27,7 +27,7 @@ app.get('/users', async (req, res) => {
             res.redirect('/yourInfo');
         }
         else {
-            return res.send('failure');
+            return res.redirect('/invalidLogin');
         }
     } catch (error) { res.status(500).json({ msg: error }) }
 });

@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(userRoutes);
 app.use('/js', express.static(__dirname + '/scripts'));
 app.use('/css', express.static(__dirname + '/styles'));
-app.use('/yourInfo', async (req, res, next) => {
+app.use(['/yourInfo', '/logout'], async (req, res, next) => {
 	if (req.cookies.token && req.cookies.username) {
 		const Login = await userModel.findOne({ _id: req.cookies.username }).exec();
 		if (req.cookies.token == Login.token) return next();
@@ -28,7 +28,7 @@ app.use('/yourInfo', async (req, res, next) => {
 	}
 	res.redirect('/login');
 })
-app.use(['/login', '/register'], async (req, res, next) => {
+app.use(['/login', '/register', '/invalidLogin'], async (req, res, next) => {
 	if (req.cookies.token && req.cookies.username) {
 		const Login = await userModel.findOne({ _id: req.cookies.username }).exec();
 		if (req.cookies.token == Login.token) return res.redirect('/logout');
@@ -51,6 +51,10 @@ app.get('/login', (req, res) => {
 });
 app.get('/logout', (req, res) => {
 	res.render('pages/logout', {
+	});
+});
+app.get('/invalidLogin', (req, res) => {
+	res.render('pages/invalidLogin', {
 	});
 });
 app.get('/register', (req, res) => {

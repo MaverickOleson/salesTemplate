@@ -126,7 +126,10 @@ footer div * {
 }
 .login .alert {
   color: red;
-  background: #f88;
+  background: #fbb;
+  font-size: 15px;
+  padding: 10px 20px;
+  border: 2px solid red;
 }
 
 html {

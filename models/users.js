@@ -13,6 +13,10 @@ const UserSchema = new mongoose.Schema({
     token: {
         type: String,
         required: false
+    },
+    info: {
+        type: Object,
+        required: false
     }
 });
 
