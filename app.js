@@ -48,20 +48,16 @@ app.get('/yourInfo', async (req, res) => {
 	});
 });
 app.get('/login', (req, res) => {
-	res.render('pages/login', {
-	});
+	res.render('pages/login');
 });
 app.get('/logout', (req, res) => {
-	res.render('pages/logout', {
-	});
+	res.render('pages/logout');
 });
 app.get('/invalidLogin', (req, res) => {
-	res.render('pages/invalidLogin', {
-	});
+	res.render('pages/invalidLogin');
 });
 app.get('/register', (req, res) => {
-	res.render('pages/register', {
-	});
+	res.render('pages/register');
 });
 
 const start = async () => {

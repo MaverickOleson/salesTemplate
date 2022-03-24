@@ -7,12 +7,12 @@ require('dotenv').config();
 
 app.post('/users', async (req, res, next) => {
     try {
+        console.log((await accountModel.find({ _id: req.body._id }).exec()).length)
+        if ((await accountModel.find({ _id: req.body._id }).exec()).length) return res.send("sdf");
         req.body.password = await bcrypt.hash(req.body.password, 10);
         await accountModel.create(req.body);
         res.redirect('/login');
-    } catch (error) {
-        return res.status(400).send('name already exists');
-    }
+    } catch (error) { res.status(500).json({ msg: error }) }
 });
 app.post('/users/:id', async (req, res, next) => {
     try {
@@ -22,15 +22,22 @@ app.post('/users/:id', async (req, res, next) => {
             res.redirect('/yourInfo');
         }
         else {
-            return res.redirect('/invalidLogin');
+            return res.render('pages/login', {
+                alert: 'Username already exists'
+            });
         }
     } catch (error) {
-        return res.status(400).send('name already exists');
+        res.render('pages/register', {
+            alert: 'Username already exists'
+        });
     }
 });
 app.get('/users', async (req, res) => {
     try {
         const Login = await accountModel.findOne({ _id: req.query.username }).exec();
+        if (!Login) return res.render('pages/login', {
+            alert: 'Invalid username or password'
+        });
         if (await bcrypt.compare(req.query.password, Login.password)) {
             Login.token = crypto.randomBytes(64).toString('hex');
             const time = new Date();
@@ -41,7 +48,9 @@ app.get('/users', async (req, res) => {
             res.redirect('/yourInfo');
         }
         else {
-            return res.redirect('/invalidLogin');
+            return res.render('pages/login', {
+                alert: 'Invalid username or password'
+            });
         }
     } catch (error) { res.status(500).json({ msg: error }) }
 });
