@@ -20,7 +20,7 @@ main{
     max-width: 70%;
     font-size: 25px;
     background: black;
-    padding: 0 30px;
+    padding: 15px 30px;
     border: 2px solid white;
     margin: 35px auto;
     img{
@@ -40,6 +40,10 @@ main{
     }
     p{
         margin: 20px;
+    }
+    #updateInfo{
+        display: none;
+        height: fit-content;
     }
 }
 body{
@@ -69,8 +73,8 @@ footer{
     background: $darkGreen;
     border-top: 2px solid white;
 }
-.login{
-    @include posCenter;
+.form{
+    margin-top: 35px;
     h1{
         background: black;
         border: 2px solid white;

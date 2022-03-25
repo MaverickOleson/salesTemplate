@@ -1,8 +1,14 @@
-<div class="login">
+<div class="form">
     <h1>Register your account</h1>
     <form action="/users" method="post">
-        <input type="text" placeholder="Username" name="_id" />
-        <input type="text" placeholder="Password" name="password" />
-        <button type="submit">Submit</button>
+        <% if(locals.alert){ %>
+            <p class="alert">
+                <%= alert %>
+            </p>
+            <% } %>
+                <input type="text" placeholder="Username" name="_id" />
+                <input type="text" placeholder="Password" name="password" />
+                <button type="submit">Submit</button>
     </form>
+    <a href="/login">Login</a>
 </div>

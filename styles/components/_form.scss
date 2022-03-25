@@ -1,11 +1,11 @@
-.login{
+.form{
     @include vert;
     input{
         height: 50px;
         width: 250px;
         border-radius: 50px;
         border: 2px solid #aaa;
-        padding-left: 22px;
+        padding: 0 22px;
         font-size: 15px;
     }
     button{

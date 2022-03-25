@@ -100,31 +100,31 @@ footer div * {
   padding: 10px 10px;
 }
 
-.login {
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.login input {
+.form input {
   height: 50px;
   width: 250px;
   border-radius: 50px;
   border: 2px solid #aaa;
-  padding-left: 22px;
+  padding: 0 22px;
   font-size: 15px;
 }
-.login button {
+.form button {
   height: 50px;
   padding: 0 20px;
   border-radius: 50px;
   border: 2px solid;
   font-size: 15px;
 }
-.login a {
+.form a {
   width: fit-content;
   margin-top: 20px;
 }
-.login .alert {
+.form .alert {
   color: red;
   background: #fbb;
   font-size: 15px;
@@ -156,7 +156,7 @@ main {
   max-width: 70%;
   font-size: 25px;
   background: black;
-  padding: 0 30px;
+  padding: 15px 30px;
   border: 2px solid white;
   margin: 35px auto;
 }
@@ -176,6 +176,10 @@ main h1 {
 }
 main p {
   margin: 20px;
+}
+main #updateInfo {
+  display: none;
+  height: fit-content;
 }
 
 body {
@@ -210,27 +214,24 @@ footer {
   border-top: 2px solid white;
 }
 
-.login {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.form {
+  margin-top: 35px;
 }
-.login h1 {
+.form h1 {
   background: black;
   border: 2px solid white;
   padding: 5px 15px;
 }
-.login input {
+.form input {
   border: 0;
 }
-.login button {
+.form button {
   cursor: pointer;
   border: 2px solid white;
   background: #111;
   color: white;
 }
-.login button:hover {
+.form button:hover {
   background: gray;
   color: black;
 }

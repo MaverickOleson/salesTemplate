@@ -3,10 +3,22 @@
     <h2>
         <%= name %>
     </h2>
-    <% for(var i=0; i<10; i++) {%>
-        <h1>loop</h1>
-        <% }%>
-            <form action="/users/<%= name %>" method="post">
-                <button type="submit">Update Info</button>
-            </form>
+    <%= info %>
+        <% for(var i=0; i<2; i++) {%>
+            <h1>loop</h1>
+            <% }%>
+                <button id="writeInfo">Update Info</button>
+                <div class="form" id="updateInfo">
+                    <form action="/users/<%= name %>" method="post">
+                        <% if(locals.info && Object.keys(locals.info).length){ %>
+                            <p class="alert">
+                                <%= alert %>
+                            </p>
+                            <% } else{ %>
+                                <input type="text" name="" placeholder="Make an entry" />
+                                <% } %>
+                                    <button type="submit">Submit</button>
+                    </form>
+                </div>
 </main>
+<script src="js/updateInfo.js"></script>

@@ -20,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(userRoutes);
 app.use('/js', express.static(__dirname + '/scripts'));
 app.use('/css', express.static(__dirname + '/styles'));
+
 app.use(['/yourInfo', '/logout'], async (req, res, next) => {
 	if (req.cookies.token && req.cookies.username) {
 		const Login = await userModel.findOne({ _id: req.cookies.username }).exec();
@@ -44,20 +45,22 @@ app.get('/', (req, res) => {
 app.get('/yourInfo', async (req, res) => {
 	const Login = await userModel.findOne({ _id: req.cookies.username }).exec();
 	res.render('pages/yourInfo', {
-		name: Login._id
+		name: Login._id,
+		info: Login.info
 	});
 });
 app.get('/login', (req, res) => {
-	res.render('pages/login');
+	res.render('pages/login', {
+		alert: req.query.alert
+	});
 });
 app.get('/logout', (req, res) => {
 	res.render('pages/logout');
 });
-app.get('/invalidLogin', (req, res) => {
-	res.render('pages/invalidLogin');
-});
 app.get('/register', (req, res) => {
-	res.render('pages/register');
+	res.render('pages/register', {
+		alert: req.query.alert
+	});
 });
 
 const start = async () => {
