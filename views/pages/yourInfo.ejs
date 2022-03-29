@@ -1,24 +1,33 @@
 <main>
-    <h1>Your Info</h1>
-    <h2>
+    <h1>
         <%= name %>
-    </h2>
-    <%= info %>
-        <% for(var i=0; i<2; i++) {%>
-            <h1>loop</h1>
+    </h1>
+    <div id="info">
+        <% for(const infoName in info) {%>
+            <h1>
+                <%= infoName %>
+            </h1>
+            <h3>
+                <%= info[infoName] %>
+            </h3>
             <% }%>
-                <button id="writeInfo">Update Info</button>
-                <div class="form" id="updateInfo">
-                    <form action="/users/<%= name %>" method="post">
-                        <% if(locals.info && Object.keys(locals.info).length){ %>
-                            <p class="alert">
-                                <%= alert %>
-                            </p>
-                            <% } else{ %>
-                                <input type="text" name="" placeholder="Make an entry" />
-                                <% } %>
-                                    <button type="submit">Submit</button>
-                    </form>
-                </div>
+    </div>
+    <div class="form" id="updateInfo">
+        <form class="form" action="/users/<%= name %>" method="post">
+            <button type="submit" name="delete" value="true">Delete Account</button>
+            <% if(info && Object.keys(info).length){ for(const infoName in info){%>
+                <h1>
+                    <%= infoName %>
+                </h1>
+                <input type="text" name="<%=infoName %>" value="<%=info[infoName]%>" />
+                <%}%>
+                    <% } else{ %>
+                        <input type=" text" name="entryName" placeholder="Entry Name" />
+                        <input type="text" name="entryInfo" placeholder="Entry info" />
+                        <% } %>
+                            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <button id="writeInfo">Update Info</button>
 </main>
 <script src="js/updateInfo.js"></script>

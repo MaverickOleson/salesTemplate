@@ -19,6 +19,12 @@ form{
         margin-top: 20px;
     }
 }
+.x{
+    width: 35px;
+    height: 35px;
+    background-image: url(./svgs/x.svg);
+    background-size: cover;
+}
 input[type=text]{
     box-sizing: border-box;
     padding: 0;

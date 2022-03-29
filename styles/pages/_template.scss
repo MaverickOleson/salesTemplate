@@ -23,6 +23,17 @@ main{
     padding: 15px 30px;
     border: 2px solid white;
     margin: 35px auto;
+    *{
+        margin-top: 20px;
+    }
+    .form{
+        margin-top: 0px;
+        h1{
+            background: transparent;
+            border: none;
+            padding: 0;
+        }
+    }
     img{
         width: 40%;
             margin: 20px;
@@ -33,13 +44,6 @@ main{
         &:nth-of-type(even){
             float: left;
         }
-    }
-    h1{
-        margin-top: 20px;
-        // color: white;
-    }
-    p{
-        margin: 20px;
     }
     #updateInfo{
         display: none;
@@ -74,11 +78,15 @@ footer{
     border-top: 2px solid white;
 }
 .form{
-    margin-top: 35px;
+    margin-top: 20px;
     h1{
         background: black;
         border: 2px solid white;
         padding: 5px 15px;
+    }
+    p{
+        margin: 0;
+        margin-top: 20px;
     }
     input{
         border: 0;

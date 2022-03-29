@@ -16,19 +16,28 @@ app.post('/users', async (req, res, next) => {
 });
 app.post('/users/:id', async (req, res, next) => {
     try {
-        console.log(req.body, req.params);
-        return next();
         const Login = await accountModel.findOne({ _id: req.params.id }).exec();
         if (!Login) return res.redirect('/login/?alert=Invalid username or password');
         if (req.cookies.token) {
             if (req.cookies.token == Login.token) {
-                Login.info = req.body;
+                if (req.body.delete) {
+                    await accountModel.findByIdAndDelete(req.params.id).exec();
+                    return res.redirect('/');
+                }
+                for (const key in req.body) {
+                    if (req.body[key]) {
+                        Login.info[key] = req.body[key];
+                    }
+                    else {
+                        delete Login.info[key];
+                    }
+                }
                 await accountModel.findOneAndUpdate({ _id: req.params.id }, Login).exec();
                 return res.redirect('/yourInfo');
             };
             return res.redirect('/login?alert=Invalid username or password');
         }
-        return res.redirect('/login/?alert=Invalid username or password');
+        res.redirect('/login/?alert=Invalid username or password');
     } catch (error) { res.status(500).json({ msg: error }) }
 });
 app.get('/users', async (req, res) => {
