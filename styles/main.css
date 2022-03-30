@@ -255,6 +255,17 @@ footer {
   color: black;
 }
 
+#writeInfo {
+  cursor: pointer;
+  border: 2px solid white;
+  background: white;
+  color: black;
+}
+#writeInfo:hover {
+  background: gray;
+  color: black;
+}
+
 .logout {
   position: absolute;
   top: 50%;

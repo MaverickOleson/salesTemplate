@@ -105,6 +105,16 @@ footer{
         }
     }
 }
+#writeInfo{
+    cursor: pointer;
+    border: 2px solid white;
+    background: white;
+    color: black;
+    &:hover{
+        background: gray;
+        color: black;
+    }
+}
 .logout{
     @include posCenter;
     background: #f00;
