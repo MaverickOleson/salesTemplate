@@ -193,6 +193,9 @@ main #updateInfo {
   display: none;
   height: fit-content;
 }
+main #addInfo {
+  cursor: pointer;
+}
 
 body {
   text-align: center;

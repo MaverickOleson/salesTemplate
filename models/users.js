@@ -15,8 +15,8 @@ const UserSchema = new mongoose.Schema({
         required: false
     },
     info: {
-        type: Object,
-        required: false
+        type: String,
+        default: '{}'
     }
 });
 

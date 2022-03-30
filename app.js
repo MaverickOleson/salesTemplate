@@ -23,7 +23,8 @@ app.use('/css', express.static(__dirname + '/styles'));
 
 app.use(['/yourInfo', '/logout'], async (req, res, next) => {
 	if (req.cookies.token && req.cookies.username) {
-		const Login = await userModel.findOne({ _id: req.cookies.username }).exec();
+		const Login = await userModel.findById(req.cookies.username).exec();
+		if (!Login) return res.redirect('/login');
 		if (req.cookies.token == Login.token) return next();
 		return res.redirect('/login');
 	}
@@ -31,7 +32,8 @@ app.use(['/yourInfo', '/logout'], async (req, res, next) => {
 })
 app.use(['/login', '/register', '/invalidLogin'], async (req, res, next) => {
 	if (req.cookies.token && req.cookies.username) {
-		const Login = await userModel.findOne({ _id: req.cookies.username }).exec();
+		const Login = await userModel.findById(req.cookies.username).exec();
+		if (!Login) return next();
 		if (req.cookies.token == Login.token) return res.redirect('/logout');
 		return next();
 	}
@@ -43,10 +45,10 @@ app.get('/', (req, res) => {
 	});
 });
 app.get('/yourInfo', async (req, res) => {
-	const Login = await userModel.findOne({ _id: req.cookies.username }).exec();
+	const Login = await userModel.findById(req.cookies.username).exec();
 	res.render('pages/yourInfo', {
 		name: Login._id,
-		info: Login.info
+		info: JSON.parse(Login.info)
 	});
 });
 app.get('/login', (req, res) => {

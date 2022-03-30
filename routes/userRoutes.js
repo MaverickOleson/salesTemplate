@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const accountModel = require('../models/users');
+const userModel = require('../models/users');
 const bcrypt = require("bcrypt");
 const crypto = require('crypto');
 require('dotenv').config();
@@ -8,49 +8,59 @@ require('dotenv').config();
 app.post('/users', async (req, res, next) => {
     try {
         if (!req.body._id || !req.body.password) return res.redirect('/register?alert=Empty username or password')
-        if ((await accountModel.find({ _id: req.body._id }).exec()).length) return res.redirect('/register?alert=Username already taken');
+        if (await userModel.findById(req.body._id).exec()) return res.redirect('/register?alert=Username already taken');
         req.body.password = await bcrypt.hash(req.body.password, 10);
-        await accountModel.create(req.body);
+        await userModel.create(req.body);
         res.redirect('/login');
     } catch (error) { res.status(500).json({ msg: error }) }
 });
 app.post('/users/:id', async (req, res, next) => {
     try {
-        const Login = await accountModel.findOne({ _id: req.params.id }).exec();
-        if (!Login) return res.redirect('/login/?alert=Invalid username or password');
+        var Login = await userModel.findById(req.params.id).exec();
+        if (!Login) return res.redirect('/login?alert=Invalid username or password');
         if (req.cookies.token) {
             if (req.cookies.token == Login.token) {
+                const info = JSON.parse(Login.info);
                 if (req.body.delete) {
-                    await accountModel.findByIdAndDelete(req.params.id).exec();
+                    await userModel.findByIdAndDelete(req.params.id).exec();
                     return res.redirect('/');
                 }
                 for (const key in req.body) {
-                    if (req.body[key]) {
-                        Login.info[key] = req.body[key];
+                    if (key == 'newInfo') {
+                        for (var i = 0; i < req.body[key].length; i += 2) {
+                            if (!req.body[key][i] || !req.body[key][i + 1]) {
+                                continue;
+                            }
+                            info[req.body[key][i]] = req.body[key][i + 1];
+                        }
+                    }
+                    else if (req.body[key]) {
+                        info[key] = req.body[key];
                     }
                     else {
-                        delete Login.info[key];
+                        delete info[key];
                     }
                 }
-                await accountModel.findOneAndUpdate({ _id: req.params.id }, Login).exec();
+                Login.info = JSON.stringify(info);
+                await userModel.findByIdAndUpdate(req.params.id, Login).exec();
                 return res.redirect('/yourInfo');
             };
             return res.redirect('/login?alert=Invalid username or password');
         }
-        res.redirect('/login/?alert=Invalid username or password');
+        res.redirect('/login?alert=Invalid username or password');
     } catch (error) { res.status(500).json({ msg: error }) }
 });
 app.get('/users', async (req, res) => {
     try {
-        const Login = await accountModel.findOne({ _id: req.query.username }).exec();
-        if (!Login) return res.redirect('/login/?alert=Invalid username or password');
+        const Login = await userModel.findById(req.query.username).exec();
+        if (!Login) return res.redirect('/login?alert=Invalid username or password');
         if (await bcrypt.compare(req.query.password, Login.password)) {
             Login.token = crypto.randomBytes(64).toString('hex');
             const time = new Date();
             time.setDate(time.getDate() + 30);
             res.cookie('token', Login.token, { expires: time });
             res.cookie('username', req.query.username);
-            await accountModel.findOneAndUpdate({ _id: req.query.username }, Login);
+            await userModel.findByIdAndUpdate(req.query.username, Login).exec();
             res.redirect('/yourInfo');
         }
         else {
@@ -69,7 +79,7 @@ app.post('/logout', async (req, res) => {
 });
 const deleteAccount = async (req, res) => {
     try {
-        const Login = await accountModel.findByIdAndRemove(req.params.id);
+        const Login = await userModel.findByIdAndRemove(req.params.id).exec();
         res.status(201).json({ Login });
     } catch (error) { res.status(500).json({ msg: error }) }
 }
