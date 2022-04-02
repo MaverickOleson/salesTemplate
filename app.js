@@ -70,7 +70,7 @@ app.get('/register', (req, res) => {
 const start = async () => {
 	try {
 		await connectDB(process.env.MONGO_URI);
-		app.listen(process.env.PORT, console.log(`server is listening on port 5000`));
+		app.listen(process.env.PORT || 2000, console.log(`server is listening on port 2000`));
 	} catch (error) { console.error(error) }
 }
 start();
