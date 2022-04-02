@@ -112,6 +112,11 @@ footer div * {
   flex-direction: column;
   align-items: center;
 }
+.form .message {
+  border-radius: 8px;
+  border: 2px solid #aaa;
+  width: 75%;
+}
 .form input {
   height: 50px;
   width: 250px;
@@ -253,6 +258,17 @@ footer {
 .form button:hover {
   background: gray;
   color: black;
+}
+
+#writeInfo {
+  height: 50px;
+  padding: 0 20px;
+  border-radius: 50px;
+  border: 2px solid;
+  font-size: 15px;
+}
+#writeInfo:hover {
+  background: gray;
 }
 
 .logout {

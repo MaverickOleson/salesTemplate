@@ -20,13 +20,13 @@
                     <%= infoName %>
                 </h1>
                 <input type="text" name="<%=infoName %>" value="<%=info[infoName]%>" />
-                <h1 id="addInfo">+</h1>
                 <%}%>
                     <% } else{ %>
                         <input type=" text" name="newInfo" placeholder="Entry Name" />
                         <input type="text" name="newInfo" placeholder="Entry info" />
-                        <button type="submit">Submit</button>
                         <% } %>
+                            <h1 id="addInfo">+</h1>
+                            <button type="submit" id="userSubmit">Submit</button>
         </form>
     </div>
     <button id="writeInfo">Update Info</button>

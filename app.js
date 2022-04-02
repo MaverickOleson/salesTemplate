@@ -41,8 +41,7 @@ app.use(['/login', '/register', '/invalidLogin'], async (req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-	res.render('pages/home', {
-	});
+	res.render('pages/home');
 });
 app.get('/yourInfo', async (req, res) => {
 	const Login = await userModel.findById(req.cookies.username).exec();
@@ -50,6 +49,9 @@ app.get('/yourInfo', async (req, res) => {
 		name: Login._id,
 		info: JSON.parse(Login.info)
 	});
+});
+app.get('/contactUs', async (req, res) => {
+	res.render('pages/contactUs');
 });
 app.get('/login', (req, res) => {
 	res.render('pages/login', {

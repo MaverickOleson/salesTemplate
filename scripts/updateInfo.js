@@ -2,6 +2,7 @@ const info = document.getElementById('info');
 const writeInfo = document.getElementById('writeInfo');
 const updateInfo = document.getElementById('updateInfo');
 const addInfo = document.getElementById('addInfo');
+const userSubmit = document.getElementById('userSubmit');
 
 var infoDisplay = true;
 writeInfo.addEventListener('click', e => {
@@ -18,20 +19,20 @@ writeInfo.addEventListener('click', e => {
     }
 });
 
-var addedInfo = false;
 addInfo.addEventListener('click', e => {
     const parent = addInfo.parentElement;
     parent.removeChild(addInfo);
-    parent.innerHTML = `
-        ${parent.innerHTML}
-        <input type=" text" name="newInfo" placeholder="Entry Name" />
-        <input type="text" name="newInfo" placeholder="Entry info" />
-    `;
-    const submit = document.createElement('button');
-    submit.type = 'submit';
-    submit.innerHTML = 'Submit';
+    parent.removeChild(userSubmit);
+    const entryName = document.createElement('input');
+    const entryInfo = document.createElement('input');
+    entryName.type = 'text';
+    entryName.name = 'newInfo';
+    entryName.placeholder = 'Entry Name';
+    entryInfo.type = 'text';
+    entryInfo.name = 'newInfo';
+    entryInfo.placeholder = 'Entry info';
+    parent.appendChild(entryName);
+    parent.appendChild(entryInfo);
     parent.appendChild(addInfo);
-    if (!addedInfo) parent.removeChild(submit);
-    parent.appendChild(submit);
-    addedInfo = false;
+    parent.appendChild(userSubmit);
 });

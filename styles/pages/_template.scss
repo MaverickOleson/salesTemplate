@@ -105,6 +105,16 @@ footer{
         }
     }
 }
+#writeInfo{
+        height: 50px;
+        padding: 0 20px;
+        border-radius: 50px;
+        border: 2px solid;
+        font-size: 15px;
+        &:hover{
+            background: gray;
+        }
+}
 .logout{
     @include posCenter;
     background: #f00;
